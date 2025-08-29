@@ -1,0 +1,130 @@
+body, h1, h2, h3, h4, p {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    line-height: 1.6;
+    color: #333;
+}
+
+:root {
+    --primary: #4CAF50;  
+    --secondary: #FF6F61; 
+}
+
+/*CSS Grid for Main Layout */
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr; /*mobile */
+    gap: 1.5rem;
+    padding: 1rem;
+}
+
+.main-header,
+.main-footer {
+    grid-column: 1 / -1;
+    background-color: var(--primary);
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+.main-content,
+.sidebar {
+    grid-column: 1 / -1;
+    background-color: #fff;
+    padding: 1rem;
+    border-left: 4px solid var(--secondary); 
+}
+
+/* Flexbox for Components */
+
+/* Navigation bar */
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.main-nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+}
+
+.main-nav a:hover {
+    background-color: var(--secondary);
+}
+
+/* Card layout */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.card {
+    background-color: #e2e2e2;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    flex: 1 1 250px;
+    border-top: 3px solid var(--primary);
+}
+
+/* Tablet view */
+@media (min-width: 768px) {
+    .grid-container {
+        grid-template-columns: 3fr 1fr;
+    }
+
+    .main-content {
+        grid-column: 1 / 2;
+    }
+
+    .sidebar {
+        grid-column: 2 / 3;
+    }
+
+    .main-nav ul {
+        justify-content: flex-end;
+    }
+}
+
+/* Desktop view */
+@media (min-width: 1024px) {
+    .grid-container {
+        grid-template-columns: 1fr 4fr 1fr;
+    }
+
+    .main-content {
+        grid-column: 2 / 3;
+    }
+
+    .sidebar {
+        grid-column: 1 / 2;
+    }
+}
+
+.main-content,
+.sidebar,
+.card {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/*animation */
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+/* Link CSS file */
